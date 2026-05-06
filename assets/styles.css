@@ -400,15 +400,16 @@ h3 {
 
 .progress-chart-scroll {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
   border-radius: 16px;
 }
 
 .progress-chart-card img {
   display: block;
   width: 100%;
+  max-width: 980px;
   height: auto;
+  margin: 0 auto;
   border-radius: 16px;
 }
 
@@ -477,18 +478,25 @@ h3 {
   }
 
   .progress-chart-card {
-    padding: 10px;
+    padding: 8px;
     margin-top: 18px;
   }
 
-  .progress-chart-scroll img {
-    min-width: 760px;
-    max-width: none;
+  .progress-chart-scroll {
+    overflow-x: hidden;
+  }
+
+  .progress-chart-card img {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    border-radius: 12px;
   }
 
   .chart-caption {
     font-size: 0.85rem;
     line-height: 1.45;
+    margin: 10px 2px 0;
   }
 }
 
