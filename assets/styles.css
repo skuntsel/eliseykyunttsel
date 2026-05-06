@@ -387,6 +387,37 @@ h3 {
   border-top: 1px solid var(--line);
 }
 
+.progress-chart-card {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(228, 222, 212, 0.9);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.progress-chart-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 16px;
+}
+
+.progress-chart-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.chart-caption {
+  margin: 12px 4px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 860px) {
   .nav {
     min-height: 68px;
@@ -444,29 +475,21 @@ h3 {
   .section {
     padding: 56px 0;
   }
-}
 
-.progress-chart-card {
-  grid-column: 1 / -1;
-  margin-top: 24px;
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(228, 222, 212, 0.9);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
+  .progress-chart-card {
+    padding: 10px;
+    margin-top: 18px;
+  }
 
-.progress-chart-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
+  .progress-chart-scroll img {
+    min-width: 760px;
+    max-width: none;
+  }
 
-.chart-caption {
-  margin: 12px 4px 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+  .chart-caption {
+    font-size: 0.85rem;
+    line-height: 1.45;
+  }
 }
 
 @media (max-width: 520px) {
