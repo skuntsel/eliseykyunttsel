@@ -446,6 +446,29 @@ h3 {
   }
 }
 
+.progress-chart-card {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(228, 222, 212, 0.9);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.progress-chart-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.chart-caption {
+  margin: 12px 4px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 @media (max-width: 520px) {
   .brand-text {
     display: none;
