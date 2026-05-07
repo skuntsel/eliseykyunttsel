@@ -569,6 +569,55 @@ h3 {
   }
 }
 
+@media (max-width: 640px) {
+  .site-header-inner {
+    gap: 8px;
+  }
+
+  .brand {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .brand-subtitle {
+    font-size: 0.72rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-quick-link {
+    margin-left: 4px;
+    margin-right: 6px;
+    padding: 0.48rem 0.58rem;
+    font-size: 0.82rem;
+    flex: 0 0 auto;
+  }
+
+  .nav-toggle {
+    padding: 0.48rem 0.64rem;
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+  }
+}
+
 @media (max-width: 860px) {
   .nav {
     min-height: 68px;
