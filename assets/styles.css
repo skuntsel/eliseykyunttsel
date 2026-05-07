@@ -66,14 +66,15 @@ a {
 
 .nav-quick-link {
   margin-left: auto;
-  margin-right: 14px;
-  padding: 0.58rem 0.9rem;
+  margin-right: 12px;
+  padding: 0.58rem 0.82rem;
   border: 1px solid rgba(228, 222, 212, 0.95);
   border-radius: 999px;
   color: var(--ink);
   text-decoration: none;
   font-weight: 750;
   background: rgba(255, 255, 255, 0.72);
+  white-space: nowrap;
 }
 
 .nav-quick-link:hover,
@@ -675,7 +676,10 @@ h3 {
   }
   
   .nav-quick-link {
-    display: none;
+    margin-left: auto;
+    margin-right: 8px;
+    padding: 0.52rem 0.68rem;
+    font-size: 0.9rem;
   }
   
   .nav-toggle {
@@ -692,5 +696,11 @@ h3 {
 
   h1 {
     font-size: 3.2rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .nav-quick-link {
+    display: none;
   }
 }
