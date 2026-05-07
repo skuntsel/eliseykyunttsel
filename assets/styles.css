@@ -576,36 +576,26 @@ h3 {
 
   .brand {
     min-width: 0;
-    flex: 1 1 auto;
-  }
-
-  .brand-mark {
-    width: 42px;
-    height: 42px;
-    flex: 0 0 auto;
+    flex: 1 1 0;
+    overflow: hidden;
   }
 
   .brand-text {
     min-width: 0;
-  }
-
-  .brand-name {
-    font-size: 1rem;
-    white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
   }
 
+  .brand-name,
   .brand-subtitle {
-    font-size: 0.72rem;
+    display: block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   .nav-quick-link {
-    margin-left: 4px;
-    margin-right: 6px;
+    margin-left: 12px;
+    margin-right: 4px;
     padding: 0.48rem 0.58rem;
     font-size: 0.82rem;
     flex: 0 0 auto;
