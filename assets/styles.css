@@ -64,6 +64,23 @@ a {
   gap: 24px;
 }
 
+.nav-quick-link {
+  margin-left: auto;
+  margin-right: 14px;
+  padding: 0.58rem 0.9rem;
+  border: 1px solid rgba(228, 222, 212, 0.95);
+  border-radius: 999px;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 750;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.nav-quick-link:hover,
+.nav-quick-link:focus-visible {
+  background: #ffffff;
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -656,7 +673,11 @@ h3 {
   .brand-subtitle {
     font-size: 0.68rem;
   }
-
+  
+  .nav-quick-link {
+    display: none;
+  }
+  
   .nav-toggle {
     padding: 0.58rem 0.78rem;
   }
