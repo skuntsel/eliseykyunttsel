@@ -1,0 +1,19 @@
+{
+  "name": "Elisey Kyunttsel",
+  "short_name": "EK",
+  "icons": [
+    {
+      "src": "/assets/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#223f5d",
+  "background_color": "#f7f4ee",
+  "display": "standalone"
+}
