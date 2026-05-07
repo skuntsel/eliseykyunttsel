@@ -420,9 +420,9 @@ h3 {
 }
 
 .section.photo-gallery {
+  width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
-  padding-top: 56px;
-  padding-bottom: 56px;
+  padding: 78px 0;
 }
 
 .gallery-card {
@@ -499,10 +499,15 @@ h3 {
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
 }
 
+@media (max-width: 860px) {
+  .section.photo-gallery {
+    padding: 56px 0;
+  }
+}
+
 @media (max-width: 640px) {
   .section.photo-gallery {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 0;
   }
 
   .gallery-card {
