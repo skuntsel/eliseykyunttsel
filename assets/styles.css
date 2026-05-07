@@ -84,6 +84,25 @@ a {
   font-size: 0.9rem;
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-weight: 850;
+  letter-spacing: -0.02em;
+}
+
+.brand-subtitle {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 650;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
 .nav-menu {
   display: flex;
   align-items: center;
@@ -614,8 +633,32 @@ h3 {
 }
 
 @media (max-width: 520px) {
+  .brand {
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 auto;
+  }
+
   .brand-text {
-    display: none;
+    display: flex;
+    min-width: 0;
+  }
+
+  .brand-name {
+    font-size: 0.96rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.68rem;
+  }
+
+  .nav-toggle {
+    padding: 0.58rem 0.78rem;
   }
 
   .stats-grid {
