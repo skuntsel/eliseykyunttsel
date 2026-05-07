@@ -698,9 +698,3 @@ h3 {
     font-size: 3.2rem;
   }
 }
-
-@media (max-width: 390px) {
-  .nav-quick-link {
-    display: none;
-  }
-}
