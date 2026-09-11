@@ -1,0 +1,72 @@
+name: Finalize social preview card
+
+on:
+  push:
+    paths:
+      - '.github/workflows/finalize-og-card.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Archive old card and update metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s assets/elisey-og-fall-2026.jpg
+          mkdir -p assets/archive
+          if [ -f assets/elisey-og.jpg ]; then
+            cp assets/elisey-og.jpg assets/archive/elisey-og-v1.jpg
+            rm assets/elisey-og.jpg
+          fi
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          image = 'https://eliseykyunttsel.com/assets/elisey-og-fall-2026.jpg?v=20260910'
+          alt = 'Elisey Kyunttsel rowing recruiting profile showing 2K progression toward a sub-6:30 goal, 5K erg benchmark, GPA, and SAT preparation benchmark.'
+          og_desc = 'Class of 2027 Row New York rower. Recorded 2K 6:52.0; current development goal sub-6:30; 5K erg 18:34.1; unweighted GPA 95.79/100; SAT preparation benchmark in the 1400s.'
+
+          s = re.sub(r'  <meta property="og:description" content="[^"]*" />', f'  <meta property="og:description" content="{og_desc}" />', s)
+          s = re.sub(r'  <meta property="og:image" content="[^"]*" />', f'  <meta property="og:image" content="{image}" />', s)
+          s = re.sub(r'  <meta property="og:image:alt" content="[^"]*" />', f'  <meta property="og:image:alt" content="{alt}" />', s)
+          s = re.sub(r'  <meta name="twitter:description" content="[^"]*" />', f'  <meta name="twitter:description" content="{og_desc}" />', s)
+          s = re.sub(r'  <meta name="twitter:image" content="[^"]*" />', f'  <meta name="twitter:image" content="{image}" />', s)
+          s = re.sub(r'  <meta name="twitter:image:alt" content="[^"]*" />', f'  <meta name="twitter:image:alt" content="{alt}" />', s)
+
+          for prop in ('og:image:secure_url','og:image:type','og:image:width','og:image:height'):
+              s = re.sub(rf'\n?  <meta property="{re.escape(prop)}"[^>]* />', '', s)
+
+          marker = f'  <meta property="og:image" content="{image}" />'
+          details = '\n'.join([
+              marker,
+              f'  <meta property="og:image:secure_url" content="{image}" />',
+              '  <meta property="og:image:type" content="image/jpeg" />',
+              '  <meta property="og:image:width" content="1200" />',
+              '  <meta property="og:image:height" content="630" />',
+          ])
+          s = s.replace(marker, details, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+
+          rm -rf tmp
+          rm -f .github/workflows/finalize-og-card.yml
+
+      - name: Commit final state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Activate fall 2026 social preview card"
+          git push
